@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap'); */
+
+
+:root,
+:host {
+    --fa-style-family-classic: 'Font Awesome 6 Free';
+    --fa-font-solid: normal 900 1em/1 'Font Awesome 6 Free';
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url("../fonts/fa-solid-900.woff2") format("woff2"), url("../fonts/fa-solid-900.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Brands';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../fonts/fa-brands-400.woff2") format("woff2"), url("../fonts/fa-brands-400.ttf") format("truetype");
+}
+
+.fab,
+.fa-brands {
+    font-family: "Font Awesome 6 Brands";
+    font-style: normal;
+    font-weight: 400;
+}
+
+.fas,
+.fa-solid {
+    font-family: "Font Awesome 6 Free";
+    font-style: normal;
+    font-weight: 900;
+}
+
+.fa-star::before {
+    content: "\f005";
+}
+
+.fa-stopwatch::before {
+    content: "\f2f2";
+}
+
+.fa-medal::before {
+    content: "\f5a2";
+}
+
+.fa-square-facebook:before {
+    content: "\f082";
+}
+
+.fa-instagram:before {
+    content: "\f16d";
+}
+
+
+.fa-map-location-dot::before {
+    content: "\f5a0";
+}
+
+.fa-phone-volume::before {
+    content: "\f2a0";
+}
+
+.fa-computer::before {
+    content: "\e4e5";
+}
