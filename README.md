@@ -65,8 +65,8 @@ Este projeto é um site front-end com funcionalidades de envio de contato e subs
    cd rochart-investimentos
 
 2. **Configuração do arquivo .env**:
+   - Crie um arquivo .env na raiz do projeto com o seguinte formato:
 ```bash
-   Crie um arquivo .env na raiz do projeto com o seguinte formato:
    MAILJET_API_KEY=your_mailjet_api_key
    MAILJET_SECRET_KEY=your_mailjet_secret_key
    MAILJET_FROM_EMAIL=your_email@example.com
