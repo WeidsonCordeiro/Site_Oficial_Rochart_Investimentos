@@ -76,7 +76,7 @@ import { validateEmail } from './validationEmail.js';
             showModal('Aguardando envio...');
 
             try {
-                const response = await emailjs.send(env.EMAILJS_API_SERVICE_KEY, env.EMAILJS_API_TEMPLATE_KEY, templateParams);
+                const response = await emailjs.send(env.EMAILJS_API_SERVICE_KEY, env.EMAILJS_API_TEMPLATE_SITE_ROCHARTE_KEY, templateParams);
                 console.log('SUCCESS!', response.status, response.text);
                 showModal('Email enviado com sucesso!', true); // Sucesso
                 vForm.reset();
