@@ -45,7 +45,8 @@ app.get('/api/env', (req, res) => {
     }
 });
 
-//app.listen(process.env.PORT, () => console.log(`Servidor rodando na porta ${process.env.PORT}`));
+const port = process.env.PORT || 3000;
+app.listen(process.env.port, () => console.log(`Servidor rodando na porta ${process.env.port}`));
 
 // Exportar o servidor para o Vercel
 module.exports = app;
