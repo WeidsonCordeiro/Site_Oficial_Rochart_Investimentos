@@ -1,2 +1,3 @@
 # Secret Keys file
 .env
+.node_modules
