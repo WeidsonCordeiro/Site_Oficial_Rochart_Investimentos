@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.post('/send-newsletter', async (req, res) => {
+app.post('/api/send-newsletter', async (req, res) => {
     const { to, subject, message } = req.body;
     try {
         const request = await mailjet

@@ -26,6 +26,10 @@
     {
       "src": ".*",
       "dest": "/client/index.html"
+    },
+    { 
+      "src": "^/api/(.*)", 
+      "dest": "/server/server.js" 
     }
   ]
 }

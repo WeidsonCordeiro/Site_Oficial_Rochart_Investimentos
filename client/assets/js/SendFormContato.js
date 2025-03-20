@@ -7,7 +7,7 @@ import { validateEmail } from './validationEmail.js';
 
     const getEnv = async () => {
         try {
-            let response = await fetch('http://localhost:5000/api/env');
+            let response = await fetch('/api/env');
             env = await response.json(); // Atribua o valor de `env` aqui
             emailjs.init({ publicKey: env.EMAILJS_API_PUBLIC_KEY }); // Inicialize o EmailJS após obter `env`
         } catch (error) {
