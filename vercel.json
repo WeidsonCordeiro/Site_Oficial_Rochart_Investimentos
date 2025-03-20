@@ -20,6 +20,10 @@
       "dest": "/client/$1"
     },
     {
+      "src": "^/(projetos.html|servicos.html|contatos.html)",
+      "dest": "/client/$1"
+    },
+    {
       "src": ".*",
       "dest": "/client/index.html"
     }
