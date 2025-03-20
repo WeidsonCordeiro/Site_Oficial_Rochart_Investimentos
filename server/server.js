@@ -38,7 +38,7 @@ app.get('/api/env', (req, res) => {
         res.json({
             EMAILJS_API_PUBLIC_KEY: process.env.EMAILJS_API_PUBLIC_KEY,
             EMAILJS_API_SERVICE_KEY: process.env.EMAILJS_API_SERVICE_KEY,
-            EMAILJS_API_TEMPLATE_KEY: process.env.EMAILJS_API_TEMPLATE_KEY,
+            EMAILJS_API_TEMPLATE_KEY: process.env.EMAILJS_API_TEMPLATE_SITE_ROCHARTE_KEY,
         })
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
