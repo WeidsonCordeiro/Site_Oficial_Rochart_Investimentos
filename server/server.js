@@ -20,7 +20,7 @@ app.post('/api/send-newsletter', async (req, res) => {
             .post("send", { version: "v3.1" })
             .request({
                 Messages: [{
-                    From: { Email: process.env.MAILJET_FROM_EMAIL, Name: "Weidson Cordeiro" },
+                    From: { Email: process.env.MAILJET_FROM_EMAIL, Name: "Newsletter Weidson Cordeiro" },
                     To: [{ Email: to }],
                     Subject: subject,
                     HTMLPart: `<p>${message}</p>`
@@ -33,20 +33,36 @@ app.post('/api/send-newsletter', async (req, res) => {
     }
 });
 
-app.get('/api/env', (req, res) => {
+app.post('/api/send-email', async (req, res) => {
+    
+    const { nome, email, telefone, mensagem } = req.body;
+    const url = 'https://api.emailjs.com/api/v1.0/email/send';
+
+        let templateParams = {
+            nome,
+            email,
+            telefone,
+            mensagem
+        };
+
     try {
-        res.json({
-            EMAILJS_API_PUBLIC_KEY: process.env.EMAILJS_API_PUBLIC_KEY,
-            EMAILJS_API_SERVICE_KEY: process.env.EMAILJS_API_SERVICE_KEY,
-            EMAILJS_API_TEMPLATE_SITE_ROCHARTE_KEY: process.env.EMAILJS_API_TEMPLATE_SITE_ROCHARTE_KEY,
-        })
+
+        const response = await fetch(url, {
+            service_id: process.env.EMAILJS_API_SERVICE_KEY,
+            template_id: process.env.EMAILJS_API_TEMPLATE_SITE_ROCHARTE_KEY,
+            user_id: process.env.EMAILJS_API_PUBLIC_KEY,
+            template_params: templateParams
+          });
+
+        res.status(200).json({ message: 'Email enviado com sucesso!' });
+
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
     }
 });
 
 const port = process.env.PORT || 3000;
-app.listen(process.env.port, () => console.log(`Servidor rodando na porta ${process.env.port}`));
+app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
 
 // Exportar o servidor para o Vercel
 module.exports = app;

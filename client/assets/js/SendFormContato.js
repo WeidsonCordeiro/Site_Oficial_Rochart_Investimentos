@@ -3,20 +3,6 @@ import { validateEmail } from './validationEmail.js';
 (function () {
     'use strict'
 
-    let env; // Declare a variável `env` no escopo global da função
-
-    const getEnv = async () => {
-        try {
-            let response = await fetch('/api/env');
-            env = await response.json(); // Atribua o valor de `env` aqui
-            emailjs.init({ publicKey: env.EMAILJS_API_PUBLIC_KEY }); // Inicialize o EmailJS após obter `env`
-        } catch (error) {
-            console.error('Erro ao buscar variáveis de ambiente:', error);
-        }
-    };
-
-    getEnv();
-
     const vForm = document.querySelector('.handleSubmitContato');
 
     vForm.addEventListener("submit", async function (e) {
@@ -75,15 +61,25 @@ import { validateEmail } from './validationEmail.js';
             // Mostrar mensagem de carregamento
             showModal('Aguardando envio...');
 
-            try {
-                const response = await emailjs.send(env.EMAILJS_API_SERVICE_KEY, env.EMAILJS_API_TEMPLATE_SITE_ROCHARTE_KEY, templateParams);
-                console.log('SUCCESS!', response.status, response.text);
-                showModal('Email enviado com sucesso!', true); // Sucesso
-                vForm.reset();
-            } catch (error) {
-                console.error('FAILED...', error);
-                showModal('Erro ao enviar o email. Tente novamente!', true); // Erro
+            async function sendEmail() {
+                try {
+                    const resposta = await fetch(`/api/send-email`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(templateParams)
+                    });
+
+                    const response = await resposta.json();
+                    console.log(response);
+                    showModal('E-mail enviado com sucesso!', true);
+                    vForm.reset();
+
+                } catch (error) {
+                    showModal('Erro ao enviar o email. Tente novamente!', true);
+                }
             }
+
+            sendEmail();
         }
 
     });
