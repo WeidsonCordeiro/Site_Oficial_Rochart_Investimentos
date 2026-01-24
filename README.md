@@ -6,7 +6,7 @@
 
 # Site Oficial Rochart Investimentos
 
-Este projeto é um site front-end com funcionalidades de envio de contato e subscrição de newsletter utilizando a API do [EmailJS](https://www.emailjs.com/) e o Mailjet.
+Este projeto é um site Fullstach com funcionalidades de envio de contato e subscrição de newsletter utilizando a API do Mailjet.
 
 ---
 
