@@ -22,7 +22,6 @@ Este projeto é um site front-end com funcionalidades de envio de contato e subs
 ### 1. Pré-requisitos
 
 - Node.js instalado ([Download Node.js](https://nodejs.org/))
-- Conta no [EmailJS](https://www.emailjs.com/)
 - Conta no [Mailjet](https://app.mailjet.com/signin/)
 - Editor de código (recomendado: [Visual Studio Code](https://code.visualstudio.com/))
 
