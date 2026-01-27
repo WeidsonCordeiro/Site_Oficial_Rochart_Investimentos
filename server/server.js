@@ -422,8 +422,7 @@ app.post("/api/sendEmailContacto", async (req, res) => {
   }
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
+// const port = process.env.PORT || 3000;
+// app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
 
-// Exportar o servidor para o Vercel
 module.exports = app;

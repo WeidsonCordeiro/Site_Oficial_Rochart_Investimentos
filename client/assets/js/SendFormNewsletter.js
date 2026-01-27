@@ -60,7 +60,7 @@ import { requestConfig, apiUrl } from "../utils/config.js";
       async function carregarNewsletters() {
         const config = requestConfig("POST", formData, null);
         try {
-          const res = await fetch(`${apiUrl}/api/sendNewsLetter`, config);
+          const res = await fetch(`${apiUrl}api/sendNewsLetter`, config);
 
           const result = await res.json();
 

@@ -1,4 +1,6 @@
-export const apiUrl = "http://localhost:8800";
+const isDev = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+
+export const apiUrl = isDev ? "http://localhost:8800/" : "";
 
 export const requestConfig = (method, data = null, token = null) => {
   const config = { method, headers: {} };
