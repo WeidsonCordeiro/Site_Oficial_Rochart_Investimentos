@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const Mailjet = require("node-mailjet");
+const port = process.env.PORT || 5000;
 
 require("dotenv").config();
 
@@ -422,7 +423,10 @@ app.post("/api/sendEmailContacto", async (req, res) => {
   }
 });
 
-// const port = process.env.PORT || 3000;
-// app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
+if (process.env.NODE_ENV !== "production") {
+  app.listen(port, () => {
+    console.log(`🚀 Server run in http://localhost:${port}`);
+  });
+}
 
 module.exports = app;
